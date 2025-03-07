@@ -52,12 +52,40 @@ class SignUpVC: UIViewController {
         
         //all information is ready to be used
         
+        //create a closure
+        let registerClosure : ()->Void = {
+            //block of code
+            
+            //removes signupVC from backstack making loginVC visible
+            self.navigationController?.popViewController(animated: true)
+        }
+        
         Auth.auth().createUser(withEmail: email, password: password){
             authResult, error in guard error == nil else{
                 self.showAlertMessage(title: "We could not create the account", message: "\(error!.localizedDescription)")
                 return
             }
+            print(authResult?.user.uid)
+            /**
+             Email confirmation
+             */
+            Auth.auth().currentUser?.sendEmailVerification{ error in
+                if let error = error{
+                    //there is an error
+                    self.showAlertMessage(title: "Error", message: "\(error.localizedDescription)")
+                    return
+                }
+                //there was no error
+                //self.showAlertMessage(title: "Email Confirmation sent", message: "A confirmation email has been sent, plaese confirm before logging in.")
+                
+                //using show alert with handler
+                self.showAlertMessageWithHandler(title: "Email Confirmation sent", message: "A confirmation email has been sent, plaese confirm before logging in.", onComplete: registerClosure)
+                
+            }
+            
         }
+        
+        
     }
     
     /*

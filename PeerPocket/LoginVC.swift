@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class LoginVC: UIViewController {
     
@@ -42,6 +43,32 @@ class LoginVC: UIViewController {
             showAlertMessage(title: "Validation", message: "Password is mandatory")
             return
         }
+        
+        //we have to use firebase Auth to login
+        
+        let email = emailTextField.text!
+        let password = passwordTextField.text!
+        
+        Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
+            //completion block
+            guard error == nil else{
+                self.showAlertMessage(title: "Failed to login", message: "\(error!.localizedDescription)")
+                return
+            }
+            //verify email cinfirmation
+            guard let authUser = Auth.auth().currentUser, authUser.isEmailVerified else {
+                self.showAlertMessage(title: "Pending email verification", message: "Please verify your email")
+                return
+            }
+            //programmatically navigate to HomeVC
+            let homeViewController = self.storyboard?.instantiateViewController(withIdentifier: "HomeVC") as?
+                        UITabBarController
+                        
+                        self.view.window?.rootViewController = homeViewController
+                        self.view.window?.makeKeyAndVisible()
+             
+        }
+        
         
     }
     
