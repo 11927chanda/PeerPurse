@@ -6,8 +6,16 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		CFD3226F2D7AAE270055AB5E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CFD3226E2D7AAE270055AB5E /* GoogleService-Info.plist */; };
+		CFD322722D7AB01F0055AB5E /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = CFD322712D7AB01F0055AB5E /* FirebaseAuth */; };
+		CFD322742D7AB01F0055AB5E /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = CFD322732D7AB01F0055AB5E /* FirebaseFirestore */; };
+		CFD322762D7AB01F0055AB5E /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = CFD322752D7AB01F0055AB5E /* FirebaseStorage */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		CFD3224E2D7A8C1F0055AB5E /* PeerPocket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PeerPocket.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CFD3226E2D7AAE270055AB5E /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -36,6 +44,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CFD322722D7AB01F0055AB5E /* FirebaseAuth in Frameworks */,
+				CFD322742D7AB01F0055AB5E /* FirebaseFirestore in Frameworks */,
+				CFD322762D7AB01F0055AB5E /* FirebaseStorage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -45,6 +56,7 @@
 		CFD322452D7A8C1F0055AB5E = {
 			isa = PBXGroup;
 			children = (
+				CFD3226E2D7AAE270055AB5E /* GoogleService-Info.plist */,
 				CFD322502D7A8C1F0055AB5E /* PeerPocket */,
 				CFD3224F2D7A8C1F0055AB5E /* Products */,
 			);
@@ -78,6 +90,9 @@
 			);
 			name = PeerPocket;
 			packageProductDependencies = (
+				CFD322712D7AB01F0055AB5E /* FirebaseAuth */,
+				CFD322732D7AB01F0055AB5E /* FirebaseFirestore */,
+				CFD322752D7AB01F0055AB5E /* FirebaseStorage */,
 			);
 			productName = PeerPocket;
 			productReference = CFD3224E2D7A8C1F0055AB5E /* PeerPocket.app */;
@@ -107,6 +122,9 @@
 			);
 			mainGroup = CFD322452D7A8C1F0055AB5E;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				CFD322702D7AB01F0055AB5E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = CFD3224F2D7A8C1F0055AB5E /* Products */;
 			projectDirPath = "";
@@ -122,6 +140,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CFD3226F2D7AAE270055AB5E /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -333,6 +352,35 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		CFD322702D7AB01F0055AB5E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.9.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		CFD322712D7AB01F0055AB5E /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CFD322702D7AB01F0055AB5E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		CFD322732D7AB01F0055AB5E /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CFD322702D7AB01F0055AB5E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		CFD322752D7AB01F0055AB5E /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CFD322702D7AB01F0055AB5E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = CFD322462D7A8C1F0055AB5E /* Project object */;
 }
