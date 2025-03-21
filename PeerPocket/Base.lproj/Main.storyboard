@@ -16,12 +16,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="etS-vR-QYP">
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="sima@mailinator.com" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="etS-vR-QYP">
                                 <rect key="frame" x="16" y="135" width="288" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LxJ-8A-Lw3">
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="12345678" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LxJ-8A-Lw3">
                                 <rect key="frame" x="16" y="191" width="288" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -159,21 +159,34 @@
             </objects>
             <point key="canvasLocation" x="3783" y="-512"/>
         </scene>
-        <!--Item 1-->
-        <scene sceneID="NEg-So-OjP">
+        <!--Item-->
+        <scene sceneID="Xx1-0o-Ofo">
             <objects>
-                <viewController id="neG-xu-muD" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="5BM-7d-NLe">
+                <tableViewController id="M92-yf-eHN" customClass="ShowContactTVC" customModule="PeerPocket" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="WSP-Rg-3xh">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="ZEl-Ok-6jc"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="A8O-sg-lVL"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ZWt-i6-9lB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="4YO-S7-zuH">
+                                <rect key="frame" x="0.0" y="50" width="320" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4YO-S7-zuH" id="gIk-9W-jed">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="M92-yf-eHN" id="k2v-hj-AXf"/>
+                            <outlet property="delegate" destination="M92-yf-eHN" id="wON-Pi-Dcn"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Item" id="MH0-rr-wPV"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nBu-bw-jpY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3783" y="-1121"/>
+            <point key="canvasLocation" x="4530" y="-1122"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="ZeC-0W-nX8">
@@ -185,8 +198,8 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="neG-xu-muD" kind="relationship" relationship="viewControllers" id="jUu-JG-1l6"/>
                         <segue destination="pUV-az-iVt" kind="relationship" relationship="viewControllers" id="d5B-RQ-3qc"/>
+                        <segue destination="M92-yf-eHN" kind="relationship" relationship="viewControllers" id="m0f-Ji-BjI"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LZz-lP-fJQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

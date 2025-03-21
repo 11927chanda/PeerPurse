@@ -19,6 +19,8 @@ class SignUpVC: UIViewController {
     
     @IBOutlet weak var passwordConfirmationTextField: UITextField!
     
+    var service = Repository()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,8 +55,22 @@ class SignUpVC: UIViewController {
         //all information is ready to be used
         
         //create a closure
+       
         let registerClosure : ()->Void = {
+            var userAuthId = Auth.auth().currentUser?.uid
             //block of code
+            //register the user with its id in firebase
+            let user = User(id: userAuthId,
+                            firstname: "",
+                            lastname: "",
+                            email:email,
+                            phone:"",
+                            photo:"")
+            
+            //save
+            if self.service.addUser(withData: user){
+                print("User added: \(user.email)")
+            }
             
             //removes signupVC from backstack making loginVC visible
             self.navigationController?.popViewController(animated: true)

@@ -6,8 +6,12 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class ShowContactTVC: UITableViewController {
+    
+    var service = Repository()
+    var userAuthId = Auth.auth().currentUser?.uid
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,6 +21,15 @@ class ShowContactTVC: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        //call databse to bring contacts
+        service.findUserContacts(fromCollection: "users/\(userAuthId!)/contacts") { (returnedCollection) in
+            
+            print ("Contacts were returned from the db")
+        }
+        
+        
+        
     }
 
     // MARK: - Table view data source
